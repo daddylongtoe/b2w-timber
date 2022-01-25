@@ -1,0 +1,12 @@
+{% from 'utilities.twig' import esc_html_e %}
+
+<div class="search-results-none">
+  <h2>
+    {{ esc_html_e('Not Found') }}
+  </h2>
+  <p>
+    {{ esc_html_e('The content you are looking for is no longer available.') }}
+  </p>
+</div>
+
+{{ fn('get_search_form') }}

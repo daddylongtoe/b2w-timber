@@ -1,0 +1,9 @@
+{% extends 'main.twig' %}
+
+{% block template %}
+  {% for post in posts %}
+    {% include 'content-excerpt.twig' %}
+  {% else %}
+    {% include 'content-none.twig' %}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% from 'utilities.twig' import esc_html_e %}
+{% extends 'main.twig' %}
+
+{% block template %}
+  <div class="image-404">
+    <img src="{{ theme.link }}/assets/images/404.png"
+      class="img-fluid"
+      alt="404" />
+  </div>
+  <h3 class="text-center">
+    {{ esc_html_e("Sorry, this page can't be found") }}
+  </h3>
+  <div class="button-box text-center">
+    <a href="{{ fn('home_url')|e('esc_html') }}" class="btn btn-primary">
+      {{ esc_html_e('Back to Homepage') }}
+    </a>
+  </div>
+{% endblock %}

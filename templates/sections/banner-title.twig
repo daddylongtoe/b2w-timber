@@ -1,0 +1,70 @@
+{% from 'utilities.twig' import esc_html_e %}
+
+<section class="title-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-sm-12 offset-sm-0 overflow-hidden text-center">
+        {% if fn('is_page') %}
+          <h1 class="page-title">
+            {{ post.title }}
+          </h1>
+        {% endif %}
+
+        {% if function('is_single') %}
+          <h1 class="page-title">
+            {{ post.title }}
+          </h1>
+          <p class="tag-line sub-title">
+            {{ post.date('M d, Y') }}
+          </p>
+        {% endif %}
+
+        {% if fn('is_archive') %}
+          <h1 class="page-title">
+            {{ fn('get_the_archive_title') }}
+          </h1>
+        {% endif %}
+
+        {% if fn('is_home') %}
+          {% if site.description %}
+            <p class="tag-line sub-title">
+              {{ site.description|e('esc_html') }}
+            </p>
+            <h1>
+              {{ esc_html_e('Bootstrap to WordPress Blog') }}
+            </h1>
+          {% endif %}
+        {% endif %}
+
+        {% if not fn('is_front_page') and fn('is_home') %}
+          <h1 class="page-title">
+            {{ post.title }}
+          </h1>
+        {% endif %}
+
+        {% if fn('is_404') %}
+          <h4>
+            {{ esc_html_e('404') }}
+          </h4>
+          <h1>
+            {{ esc_html_e("Couldn't be found") }}
+          </h1>
+        {% endif %}
+
+        {% if fn('is_search') %}
+          <h1 class="page-title">
+            {{
+              __(
+                __('Search results for: %s', 'boostrap2wordpress')|format(
+                  fn(get_search_query)
+                )
+              )|e('esc_html')
+            }}
+          </h1>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'subscribe-bar.twig' %}

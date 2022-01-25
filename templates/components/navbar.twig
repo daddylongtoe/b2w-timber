@@ -1,0 +1,45 @@
+<div id="top-navigation">
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col-md-6">
+        <nav class="main-menu">
+          <ul class="top-menu d-flex flex-row navigation top-menu justify-content-end list-unstyled">
+            {% for item in menu.items %}
+              <li class="menu-item {{ item.classes|join(' ') }}">
+                <a class="{{ item.current ? 'active' }}" href="{{ item.link }}">
+                  {{ item.title }}
+                </a>
+                {% if item.children %}
+                  <ul class="sub-menu">
+                    {% for child in item.children %}
+                      <li class="menu-item">
+                        <a {{ child.current ? 'active' }}
+                          href="{{ child.link }}">
+                          {{ child.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <button type="button" class="navbar-open">
+          <i class="mobile-nav-toggler flaticon flaticon-menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <div class="menu-backdrop"></div>
+      <div class="close-btn">
+        <i class="flaticon flaticon-close"></i>
+      </div>
+      <nav class="menu-box">
+        <ul class="navigation clearfix"></ul>
+      </nav>
+    </div>
+  </div>
+</div>

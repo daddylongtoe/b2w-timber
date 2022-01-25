@@ -1,0 +1,17 @@
+{% from 'utilities.twig' import esc_html_e %}
+
+<article id="{{ post.id }}" class="post">
+  <div class="meta">
+    <span>{{ post.date('M d, Y') }}</span>
+  </div>
+  <h2>
+    <a href="{{ post.link }}">{{ post.title }}</a>
+  </h2>
+  <p class="excerpt">
+    {{ post.preview.length(50).read_more(false) }}
+  </p>
+  <a class="read-more" href="{{ post.link }}">
+    {{ esc_html_e('Read the full post ->') }}
+  </a>
+</article>
+<hr />

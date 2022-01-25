@@ -1,0 +1,7 @@
+{% macro esc_html_e(text) %}
+  {{ __(text, 'bootstrap2wordpress')|e('esc_html') }}
+{% endmacro %}
+
+{% macro esc_html(text) %}
+  {{ text|e('esc_html') }}
+{% endmacro %}

@@ -1,0 +1,43 @@
+{% if posts.pagination.pages %}
+  <nav class="b2w-pagination">
+    <ul>
+      {% if posts.pagination.prev %}
+        <li>
+          <a href="{{ posts.pagination.prev.link }}"
+            class="prev page-numbers {{
+            posts.pagination.prev.link|length
+              ? ''
+              : 'invisible'
+            }}">
+            <-
+          </a>
+        </li>
+      {% endif %}
+
+      {% for page in posts.pagination.pages %}
+        <li>
+          {% if page.link %}
+            <a href="{{ page.link }}" class="{{ page.class }}">
+              {{ page.title }}
+            </a>
+          {% else %}
+            <span class="{{ page.class }}">{{ page.title }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+
+      {% if posts.pagination.next %}
+        <li>
+          <a href="{{ posts.pagination.next.link }}"
+            class="next page-numbers {{
+            posts.pagination.next.link|length
+              ? ''
+              : 'invisible'
+            }}">
+            ->
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

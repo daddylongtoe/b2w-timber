@@ -1,0 +1,9 @@
+{% if fn('is_home') and user.can('publish_posts') %}
+  <p>
+    Ready to publish your first post? <a href="#">Get started here</a>.
+  </p>
+{% elseif fn('is_search') %}
+  {% include 'search-results-none.twig' %}
+{% else %}
+  {% include 'search-results-none.twig' %}
+{% endif %}

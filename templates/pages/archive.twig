@@ -1,0 +1,18 @@
+{# {% extends 'main.twig' %}
+
+{% block template %}
+  {% for post in posts %}
+    {% include 'content-excerpt.twig' %}
+  {% else %}
+    {% include 'content-none.twig' %}
+  {% endfor %}
+{% endblock %} #}
+
+{% extends 'index.twig' %}
+
+{% block content %}
+  <h3>
+    This is my archive
+  </h3>
+  {{ parent() }}
+{% endblock %}

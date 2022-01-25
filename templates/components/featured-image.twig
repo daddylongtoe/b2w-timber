@@ -1,0 +1,9 @@
+{% if post.thumbnail %}
+  <img src="{{ post.thumbnail.src|resize(856, 350) }}"
+    class="img-fluid"
+    alt="{{
+    post.thumbnail.alt
+      ? post.thumbnail.alt
+      : 'Main image for ' ~ post.title ~ ' blog post.'
+    }}" />
+{% endif %}
